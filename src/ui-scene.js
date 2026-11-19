@@ -82,7 +82,11 @@
     bump(key) {
       const chip = this.chips[key];
       if (!chip) return;
-      this.tweens.add({ targets: chip.target, scale: chip.target.scale * 1.25, duration: 90, yoyo: true });
+      const t = chip.target;
+      if (t.baseScale === undefined) t.baseScale = t.scale; // remember the resting size once
+      this.tweens.killTweensOf(t);
+      t.setScale(t.baseScale);
+      this.tweens.add({ targets: t, scale: t.baseScale * 1.25, duration: 90, yoyo: true, onComplete: () => t.setScale(t.baseScale) });
     }
 
     flyTo(icon, x, y, key) {

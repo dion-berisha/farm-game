@@ -1,0 +1,15 @@
+{
+  "name": "sunny-acres",
+  "version": "1.0.0",
+  "description": "Farm game prototype: cows, chickens, milk and eggs (Phaser 3)",
+  "scripts": {
+    "start": "npx serve . -l 5173"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "phaser": "^3.90.0"
+  },
+  "private": true
+}
